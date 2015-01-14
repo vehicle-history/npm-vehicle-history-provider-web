@@ -10,7 +10,7 @@ exports.checkVehicleHistory = function (plate, vin, firstRegistrationDate, optio
 
   var searchCarRequest = new SearchCarRequest(plate, vin, firstRegistrationDate);
 
-  client.checkVehicleHistory(searchCarRequest, options, function (err, body) {
+  client.getVehicleHistory(searchCarRequest, options, function (err, body) {
 
     if (err) {
       logger.error(err);

@@ -8,7 +8,7 @@
     "request": "^2.51.0",
     "winston": "^0.8.3",
     "www-fields-parser": "^0.1.4",
-    "vehicle-history-model": "^0.9.1"
+    "vehicle-history-model": "^0.9.2"
   },
   "devDependencies": {
     "config": "^1.9.0",

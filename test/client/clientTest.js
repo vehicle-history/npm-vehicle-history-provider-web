@@ -626,7 +626,7 @@ describe('client test', function () {
     });
 
     var request = new SearchCarRequest('plate', 'vin', 'date');
-    client.checkVehicleHistory(request, options, function (err, body) {
+    client.getVehicleHistory(request, options, function (err, body) {
 //      console.log('err', err);
 //      console.log('car', car);
 //      should.exist(car);
