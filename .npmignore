@@ -1,0 +1,9 @@
+.git*
+coverage/
+test/
+.DS_Store
+.travis.yml
+*.iml
+*.ipr
+*.iws
+.idea
