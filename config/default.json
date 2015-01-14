@@ -6,7 +6,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "#marka"
+            "selector": "#manufacturer"
           }
         ]
       },
@@ -15,7 +15,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "span#typ"
+            "selector": "span#name"
           }
         ]
       },
@@ -24,7 +24,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "span#model"
+            "selector": "div#model"
           }
         ]
       },
@@ -33,7 +33,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "span#rodzaj"
+            "selector": "span#type"
           }
         ]
       },
@@ -42,7 +42,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "span#podrodzaj"
+            "selector": "span#kind"
           }
         ]
       },
@@ -51,7 +51,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "span#pojemnosc"
+            "selector": "span#cc"
           }
         ]
       },
@@ -60,7 +60,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "span#paliwo"
+            "selector": "span#fuel"
           }
         ]
       },
@@ -114,7 +114,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "mileageeeee"
+            "selector": "#mileageeeee"
           },
           {
             "type": "trim"
@@ -126,7 +126,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "#jednostkaLicznika"
+            "selector": "#mileagetype"
           },
           {
             "type": "trim"
@@ -150,13 +150,13 @@
         {
           "name": "CAR",
           "values": [
-            "samochód osobowy"
+            "car"
           ]
         },
         {
           "name": "VAN",
           "values": [
-            "samochód dostawczy"
+            "van"
           ]
         }
       ],
@@ -164,8 +164,6 @@
         {
           "name": "HATCHBACK",
           "values": [
-            "samochód osobowy",
-            "wielozadaniowy",
             "hatchback"
           ]
         },
@@ -184,7 +182,7 @@
         {
           "name": "OTHER",
           "values": [
-            "inny"
+            "other"
           ]
         }
       ],
@@ -192,8 +190,7 @@
         {
           "name": "PETROL",
           "values": [
-            "benzyna",
-            "benzyna bezołowiowa"
+            "petrol"
           ]
         },
         {
@@ -217,7 +214,7 @@
         {
           "name": "OTHER",
           "values": [
-            "inny"
+            "other"
           ]
         }
       ],
@@ -225,13 +222,13 @@
         {
           "name": "UPTODATE",
           "values": [
-            "aktualna"
+            "actual"
           ]
         },
         {
           "name": "OUTDATED",
           "values": [
-            "nie aktualna"
+            "not actual"
           ]
         }
       ],
@@ -239,13 +236,13 @@
         {
           "name": "REGISTERED",
           "values": [
-            "zarejestrowany"
+            "registered"
           ]
         },
         {
           "name": "OUTDATED",
           "values": [
-            "nie aktualna"
+            "not registered"
           ]
         }
       ],
@@ -253,13 +250,13 @@
         {
           "name": "UPTODATE",
           "values": [
-            "aktualne"
+            "actual"
           ]
         },
         {
           "name": "OUTDATED",
           "values": [
-            "nie aktualne"
+            "not actual"
           ]
         }
       ],
@@ -288,24 +285,24 @@
   "form": {
     "url": "https://vehiclehost",
     "postUrlHost": "vehiclehost",
-    "postUrlRegex": "/action=\"(https\\:\/\/vehiclehost\/vehicle\\-history.+?)\" class/g",
+    "postUrlRegex": "/action=\"(https\\:\/\/vehiclehost\/strona\\-glowna.+?)\" class/g",
     "headers": {
-      "Content-Type": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-      "User-Agent": "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36",
+      "Content-Type": "application/xhtml+xml",
+      "User-Agent": "Mozilla/5.0",
       "Origin": "https://vehiclehost",
-      "Referer": "https://vehiclehost/web/guest/strona-glowna"
+      "Referer": "https://vehiclehost"
     },
     "fields": [
       {
-        "fieldName": "btnSprawdz",
+        "fieldName": "vehiclehistory:buttonCheck",
         "fieldRegex": null,
-        "fieldDefaultValue": "Sprawdź pojazd »",
+        "fieldDefaultValue": "Check",
         "searchCarRequestField": null
       },
       {
-        "fieldName": "formularz",
+        "fieldName": "vehiclehistory:form",
         "fieldRegex": null,
-        "fieldDefaultValue": "formularz",
+        "fieldDefaultValue": "vehiclehistory:form",
         "searchCarRequestField": null
       },
       {
@@ -321,19 +318,19 @@
         "searchCarRequestField": null
       },
       {
-        "fieldName": "rej",
+        "fieldName": "vehiclehistory:plate",
         "fieldRegex": null,
         "fieldDefaultValue": null,
         "searchCarRequestField": "plate"
       },
       {
-        "fieldName": "vin",
+        "fieldName": "vehiclehistory:vin",
         "fieldRegex": null,
         "fieldDefaultValue": null,
         "searchCarRequestField": "vin"
       },
       {
-        "fieldName": "data",
+        "fieldName": "vehiclehistory:date",
         "fieldRegex": null,
         "fieldDefaultValue": null,
         "searchCarRequestField": "firstRegistrationDate"
