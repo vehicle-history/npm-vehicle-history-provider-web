@@ -1,7 +1,7 @@
 var logger = require('./lib/logger/logger').logger;
 var client = require('./lib/client/client');
 var parser = require('./lib/parser/parser');
-var SearchCarRequest = require('vehicle-history-model').SearchCarRequest;
+var SearchCarRequest = require('vehicle-history-model').model.SearchCarRequest;
 
 var exports = {};
 

@@ -1,0 +1,343 @@
+{
+  "parser": {
+    "fields": [
+      {
+        "name": "name.manufacturer",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "#marka"
+          }
+        ]
+      },
+      {
+        "name": "name.name",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "span#typ"
+          }
+        ]
+      },
+      {
+        "name": "name.model",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "span#model"
+          }
+        ]
+      },
+      {
+        "name": "variant.type",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "span#rodzaj"
+          }
+        ]
+      },
+      {
+        "name": "variant.kind",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "span#podrodzaj"
+          }
+        ]
+      },
+      {
+        "name": "engine.cc",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "span#pojemnosc"
+          }
+        ]
+      },
+      {
+        "name": "engine.fuel",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "span#paliwo"
+          }
+        ]
+      },
+      {
+        "name": "production.year",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "p.year span.strong"
+          }
+        ]
+      },
+      {
+        "name": "policy.status",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "p.oc span.strong"
+          },
+          {
+            "type": "trim"
+          }
+        ]
+      },
+      {
+        "name": "registration.status",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "p.status span.strong"
+          },
+          {
+            "type": "trim"
+          }
+        ]
+      },
+      {
+        "name": "inspection.status",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "p.tech span.strong"
+          },
+          {
+            "type": "trim"
+          }
+        ]
+      },
+      {
+        "name": "mileage.value",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "mileageeeee"
+          },
+          {
+            "type": "trim"
+          }
+        ]
+      },
+      {
+        "name": "mileage.type",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": "#jednostkaLicznika"
+          },
+          {
+            "type": "trim"
+          }
+        ]
+      },
+      {
+        "name": "status.stolen",
+        "stages": [
+          {
+            "type": "selector",
+            "selector": ".stolen"
+          }
+        ]
+      }
+    ]
+  },
+  "resolver": {
+    "variant": {
+      "types": [
+        {
+          "name": "CAR",
+          "values": [
+            "samochód osobowy"
+          ]
+        },
+        {
+          "name": "VAN",
+          "values": [
+            "samochód dostawczy"
+          ]
+        }
+      ],
+      "kinds": [
+        {
+          "name": "HATCHBACK",
+          "values": [
+            "samochód osobowy",
+            "wielozadaniowy",
+            "hatchback"
+          ]
+        },
+        {
+          "name": "LIMOUSINE",
+          "values": [
+            "limousine"
+          ]
+        },
+        {
+          "name": "SEDAN",
+          "values": [
+            "sedan"
+          ]
+        },
+        {
+          "name": "OTHER",
+          "values": [
+            "inny"
+          ]
+        }
+      ],
+      "engineFuels": [
+        {
+          "name": "PETROL",
+          "values": [
+            "benzyna",
+            "benzyna bezołowiowa"
+          ]
+        },
+        {
+          "name": "CNG",
+          "values": [
+            "cng"
+          ]
+        },
+        {
+          "name": "LPG",
+          "values": [
+            "lpg"
+          ]
+        },
+        {
+          "name": "DIESEL",
+          "values": [
+            "diesel"
+          ]
+        },
+        {
+          "name": "OTHER",
+          "values": [
+            "inny"
+          ]
+        }
+      ],
+      "policyStatus": [
+        {
+          "name": "UPTODATE",
+          "values": [
+            "aktualna"
+          ]
+        },
+        {
+          "name": "OUTDATED",
+          "values": [
+            "nie aktualna"
+          ]
+        }
+      ],
+      "registrationStatus": [
+        {
+          "name": "REGISTERED",
+          "values": [
+            "zarejestrowany"
+          ]
+        },
+        {
+          "name": "OUTDATED",
+          "values": [
+            "nie aktualna"
+          ]
+        }
+      ],
+      "inspectionStatus": [
+        {
+          "name": "UPTODATE",
+          "values": [
+            "aktualne"
+          ]
+        },
+        {
+          "name": "OUTDATED",
+          "values": [
+            "nie aktualne"
+          ]
+        }
+      ],
+      "mileageStatus": [
+        {
+          "name": "KM",
+          "values": [
+            "km"
+          ]
+        },
+        {
+          "name": "MILE",
+          "values": [
+            "mile"
+          ]
+        }
+      ]
+    }
+  },
+  "example": {
+    "plate": "AB1234",
+    "vin": "ABC123456789DEF",
+    "firstRegistrationDate": "11.12.2014",
+    "url": "https://vehiclehost/vehicle-history.xhtml"
+  },
+  "form": {
+    "url": "https://vehiclehost",
+    "postUrlHost": "vehiclehost",
+    "postUrlRegex": "/action=\"(https\\:\/\/vehiclehost\/vehicle\\-history.+?)\" class/g",
+    "headers": {
+      "Content-Type": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+      "User-Agent": "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36",
+      "Origin": "https://vehiclehost",
+      "Referer": "https://vehiclehost/web/guest/strona-glowna"
+    },
+    "fields": [
+      {
+        "fieldName": "btnSprawdz",
+        "fieldRegex": null,
+        "fieldDefaultValue": "Sprawdź pojazd »",
+        "searchCarRequestField": null
+      },
+      {
+        "fieldName": "formularz",
+        "fieldRegex": null,
+        "fieldDefaultValue": "formularz",
+        "searchCarRequestField": null
+      },
+      {
+        "fieldName": "javax.faces.encodedURL",
+        "fieldRegex": "/name=\"javax.faces.encodedURL\" value=\"(.+?)\"/g",
+        "fieldDefaultValue": null,
+        "searchCarRequestField": null
+      },
+      {
+        "fieldName": "javax.faces.ViewState",
+        "fieldRegex": "/id=\"javax.faces.ViewState\" value=\"(.+?)\"/g",
+        "fieldDefaultValue": null,
+        "searchCarRequestField": null
+      },
+      {
+        "fieldName": "rej",
+        "fieldRegex": null,
+        "fieldDefaultValue": null,
+        "searchCarRequestField": "plate"
+      },
+      {
+        "fieldName": "vin",
+        "fieldRegex": null,
+        "fieldDefaultValue": null,
+        "searchCarRequestField": "vin"
+      },
+      {
+        "fieldName": "data",
+        "fieldRegex": null,
+        "fieldDefaultValue": null,
+        "searchCarRequestField": "firstRegistrationDate"
+      }
+    ]
+  }
+}

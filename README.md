@@ -1,7 +1,7 @@
 # vehicle-history-provider-pl
 [![npm version](https://badge.fury.io/js/vehicle-history-provider-pl.svg)](http://badge.fury.io/js/vehicle-history-provider-pl)
-[![Coverage Status](https://coveralls.io/repos/vehicle-history/npm-vehicle-history-provider-pl/badge.png?branch=parser)](https://coveralls.io/r/vehicle-history/npm-vehicle-history-provider-pl?branch=parser)
-[![Build Status](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-pl.svg?branch=parser)](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-pl)
+[![Coverage Status](https://coveralls.io/repos/vehicle-history/npm-vehicle-history-provider-pl/badge.svg?branch=initial-provider)](https://coveralls.io/r/vehicle-history/npm-vehicle-history-provider-pl?branch=initial-provider)
+[![Build Status](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-pl.svg?branch=initial-provider)](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-pl)
 
 [![NPM](https://nodei.co/npm/vehicle-history-provider-pl.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vehicle-history-provider-pl/)
 
