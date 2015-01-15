@@ -284,6 +284,7 @@
   },
   "form": {
     "url": "https://vehiclehost",
+    "prefix": "vehiclehistory",
     "postUrlHost": "vehiclehost",
     "postUrlRegex": "/action=\"(https\\:\/\/vehiclehost\/strona\\-glowna.+?)\" class/g",
     "headers": {
