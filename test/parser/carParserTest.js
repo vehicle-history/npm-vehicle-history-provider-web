@@ -1,43 +1,37 @@
 var options = require('config');
 var SearchCarRequest = require('vehicle-history-model').model.SearchCarRequest;
-var parser = require('../../lib/parser/parser');
+var carParser = require('../../lib/parser/carParser');
 var chai = require('chai');
 var should = chai.should();
-var expect = chai.expect;
 
-describe('parser test', function () {
+describe('car parser test', function () {
 
-  it('should generate report', function (done) {
+  it('should parser car data', function (done) {
 
-    var body = '<html>' +
-      '<div id="manufacturer">manufacturer</div>' +
-      '<div id="model">model</div>' +
-      '<span id="name">name</span>' +
-      '<span id="type">van</span>' +
-      '<span id="kind">limousine</span>' +
-      '<span id="cc">1396</span>' +
-      '<span id="fuel">diesel</span>' +
-      '<span id="mileageeeee">111</span>' +
-      '<span id="mileagetype"> mile </span>' +
-      '<span class="stolen"> stolen!!! </span>' +
-      '<p class="year"><span class="strong">1988</span></p>' +
-      '<p class="oc"><span class="strong"> not actual </span></p>' +
-      '<p class="status"><span class="strong"> registered </span></p>' +
-      '<p class="tech"><span class="strong"> actual </span></p>' +
-      '</html>';
+    var map = {
+      'name.manufacturer': 'manufacturer',
+      'name.name': 'name',
+      'name.model': 'model',
+      'variant.type': 'van',
+      'variant.kind': 'limousine',
+      'engine.cc': 1396,
+      'engine.fuel': 'diesel',
+      'production.year': 1988,
+      'policy.status': 'not actual',
+      'registration.status': 'registered',
+      'inspection.status': 'actual',
+      'mileage.value': 111,
+      'mileage.type': 'mile',
+      'status.stolen': true
+    };
 
     var plate = 'AB1234';
     var vin = 'ABC123456789DEF';
     var firstRegistrationDate = 'dd.mm.rrrr';
     var searchCarRequest = new SearchCarRequest(plate, vin, firstRegistrationDate);
 
-    var car = parser.generateReport(body, searchCarRequest, options, function (err, report) {
-
-      should.not.exist(err);
-      should.exist(report);
-      should.exist(report.car);
-
-      var car = report.car;
+    var car = carParser.parseCarData(map, searchCarRequest, options, function (err, car) {
+      should.exist(car);
 
       car.name.manufacturer.should.equal('manufacturer');
       car.name.name.should.equal('name');
