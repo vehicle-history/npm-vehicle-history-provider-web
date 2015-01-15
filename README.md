@@ -25,11 +25,12 @@ npm test
 
 ## Dependencies
 
+- [async](https://github.com/caolan/async): Higher-order functions and common patterns for asynchronous code
 - [html-entities](https://github.com/mdevils/node-html-entities): Faster HTML entities encode/decode library.
 - [request](https://github.com/request/request): Simplified HTTP request client.
+- [vehicle-history-model](https://github.com/vehicle-history/npm-vehicle-history-model): Vehicle history model.
 - [winston](https://github.com/flatiron/winston): A multi-transport async logging library for Node.js
 - [www-fields-parser](https://github.com/Zenedith/npm-www-fields-parser): Web page parser based on cheerio
-- [vehicle-history-model](https://github.com/vehicle-history/npm-vehicle-history-model): Vehicle history model.
 
 ## Dev Dependencies
 
