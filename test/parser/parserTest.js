@@ -5,7 +5,7 @@ var chai = require('chai');
 var should = chai.should();
 var expect = chai.expect;
 
-describe('car parser test', function () {
+describe('parser test', function () {
 
   it('should parser car section v2', function (done) {
 
@@ -31,7 +31,13 @@ describe('car parser test', function () {
     var firstRegistrationDate = 'dd.mm.rrrr';
     var searchCarRequest = new SearchCarRequest(plate, vin, firstRegistrationDate);
 
-    var car = parser.generateReport(body, searchCarRequest, options, function (err, car) {
+    var car = parser.generateReport(body, searchCarRequest, options, function (err, report) {
+
+      should.not.exist(err);
+      should.exist(report);
+      should.exist(report.car);
+
+      var car = report.car;
 
       car.name.manufacturer.should.equal('manufacturer');
       car.name.name.should.equal('name');
