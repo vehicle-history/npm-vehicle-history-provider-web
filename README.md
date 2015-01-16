@@ -1,18 +1,18 @@
-# vehicle-history-provider-pl
-[![npm version](https://badge.fury.io/js/vehicle-history-provider-pl.svg)](http://badge.fury.io/js/vehicle-history-provider-pl)
-[![Coverage Status](https://coveralls.io/repos/vehicle-history/npm-vehicle-history-provider-pl/badge.png?branch=parser)](https://coveralls.io/r/vehicle-history/npm-vehicle-history-provider-pl?branch=parser)
-[![Build Status](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-pl.svg?branch=parser)](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-pl)
+# vehicle-history-provider-web
+[![npm version](https://badge.fury.io/js/vehicle-history-provider-web.svg)](http://badge.fury.io/js/vehicle-history-provider-web)
+[![Coverage Status](https://coveralls.io/repos/vehicle-history/npm-vehicle-history-provider-web/badge.svg?branch=master)](https://coveralls.io/r/vehicle-history/npm-vehicle-history-provider-web?branch=master)
+[![Build Status](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-web.svg?branch=master)](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-web)
 
-[![NPM](https://nodei.co/npm/vehicle-history-provider-pl.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vehicle-history-provider-pl/)
+[![NPM](https://nodei.co/npm/vehicle-history-provider-web.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vehicle-history-provider-web/)
 
-Vehicle history provider for Poland based on car plate and vin number.
+Vehicle history web provider using car plate and vin number.
 
 ## Installation
 
 Download node at [nodejs.org](http://nodejs.org) and install it, if you haven't already.
 
 ```sh
-npm install vehicle-history-provider-pl --save
+npm install vehicle-history-provider-web --save
 ```
 
 
@@ -25,11 +25,12 @@ npm test
 
 ## Dependencies
 
+- [async](https://github.com/caolan/async): Higher-order functions and common patterns for asynchronous code
 - [html-entities](https://github.com/mdevils/node-html-entities): Faster HTML entities encode/decode library.
 - [request](https://github.com/request/request): Simplified HTTP request client.
+- [vehicle-history-model](https://github.com/vehicle-history/npm-vehicle-history-model): Vehicle history model.
 - [winston](https://github.com/flatiron/winston): A multi-transport async logging library for Node.js
 - [www-fields-parser](https://github.com/Zenedith/npm-www-fields-parser): Web page parser based on cheerio
-- [vehicle-history-model](https://github.com/vehicle-history/npm-vehicle-history-model): Vehicle history model.
 
 ## Dev Dependencies
 

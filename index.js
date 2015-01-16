@@ -1,7 +1,8 @@
+var meta = require('./lib/meta');
 var logger = require('./lib/logger/logger').logger;
 var client = require('./lib/client/client');
 var parser = require('./lib/parser/parser');
-var SearchCarRequest = require('vehicle-history-model').SearchCarRequest;
+var SearchCarRequest = require('vehicle-history-model').model.SearchCarRequest;
 
 var exports = {};
 
@@ -10,7 +11,7 @@ exports.checkVehicleHistory = function (plate, vin, firstRegistrationDate, optio
 
   var searchCarRequest = new SearchCarRequest(plate, vin, firstRegistrationDate);
 
-  client.checkVehicleHistory(searchCarRequest, options, function (err, body) {
+  client.getVehicleHistory(searchCarRequest, options, function (err, body) {
 
     if (err) {
       logger.error(err);
@@ -21,5 +22,12 @@ exports.checkVehicleHistory = function (plate, vin, firstRegistrationDate, optio
   });
 };
 
+/**
+ * the version of the library
+ * @property VERSION
+ * @type String
+ * @static
+ */
+exports.VERSION = meta.VERSION;
 
 module.exports = exports;
