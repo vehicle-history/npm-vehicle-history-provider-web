@@ -14,13 +14,13 @@ describe('car parser test', function () {
       'name.model': 'model',
       'variant.type': 'van',
       'variant.kind': 'limousine',
-      'engine.cc': 1396,
+      'engine.cc': '1396',
       'engine.fuel': 'diesel',
-      'production.year': 1988,
+      'production.year': '1988',
       'policy.status': 'not actual',
       'registration.status': 'registered',
       'inspection.status': 'actual',
-      'mileage.value': 111,
+      'mileage.value': '111',
       'mileage.type': 'mile',
       'status.stolen': true
     };
