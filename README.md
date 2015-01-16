@@ -1,18 +1,18 @@
-# vehicle-history-provider-pl
-[![npm version](https://badge.fury.io/js/vehicle-history-provider-pl.svg)](http://badge.fury.io/js/vehicle-history-provider-pl)
-[![Coverage Status](https://coveralls.io/repos/vehicle-history/npm-vehicle-history-provider-pl/badge.svg?branch=initial-provider)](https://coveralls.io/r/vehicle-history/npm-vehicle-history-provider-pl?branch=initial-provider)
-[![Build Status](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-pl.svg?branch=initial-provider)](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-pl)
+# vehicle-history-provider-web
+[![npm version](https://badge.fury.io/js/vehicle-history-provider-web.svg)](http://badge.fury.io/js/vehicle-history-provider-web)
+[![Coverage Status](https://coveralls.io/repos/vehicle-history/npm-vehicle-history-provider-web/badge.svg?branch=initial-provider)](https://coveralls.io/r/vehicle-history/npm-vehicle-history-provider-web?branch=initial-provider)
+[![Build Status](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-web.svg?branch=initial-provider)](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-web)
 
-[![NPM](https://nodei.co/npm/vehicle-history-provider-pl.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vehicle-history-provider-pl/)
+[![NPM](https://nodei.co/npm/vehicle-history-provider-web.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vehicle-history-provider-web/)
 
-Vehicle history provider for Poland based on car plate and vin number.
+Vehicle history web provider using car plate and vin number.
 
 ## Installation
 
 Download node at [nodejs.org](http://nodejs.org) and install it, if you haven't already.
 
 ```sh
-npm install vehicle-history-provider-pl --save
+npm install vehicle-history-provider-web --save
 ```
 
 

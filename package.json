@@ -1,7 +1,7 @@
 {
-  "name": "vehicle-history-provider-pl",
+  "name": "vehicle-history-provider-web",
   "version": "0.9.0",
-  "description": "Vehicle history provider for Poland based on car plate and vin number.",
+  "description": "Vehicle history web provider using car plate and vin number.",
   "main": "./index.js",
   "dependencies": {
     "async": "^0.9.0",
@@ -26,10 +26,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vehicle-history/npm-vehicle-history-provider-pl.git"
+    "url": "https://github.com/vehicle-history/npm-vehicle-history-provider-web.git"
   },
   "bugs": {
-    "url": "https://github.com/vehicle-history/npm-vehicle-history-provider-pl/issues"
+    "url": "https://github.com/vehicle-history/npm-vehicle-history-provider-web/issues"
   },
   "keywords": [
     "vehicle",
@@ -42,11 +42,11 @@
     "email": "zenedith@wp.pl"
   },
   "license": "MIT",
-  "homepage": "https://github.com/vehicle-history/npm-vehicle-history-provider-pl",
+  "homepage": "https://github.com/vehicle-history/npm-vehicle-history-provider-web",
   "engines": {
     "node": ">=0.10.0"
   },
   "readmeFilename": "README.md",
-  "_id": "vehicle-history-provider-pl@0.9.0",
-  "_from": "vehicle-history-provider-pl@^0.9.0"
+  "_id": "vehicle-history-provider-web@0.9.0",
+  "_from": "vehicle-history-provider-web@^0.9.0"
 }
