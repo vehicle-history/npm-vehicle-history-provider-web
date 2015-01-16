@@ -1,3 +1,4 @@
+var meta = require('./lib/meta');
 var logger = require('./lib/logger/logger').logger;
 var client = require('./lib/client/client');
 var parser = require('./lib/parser/parser');
@@ -21,5 +22,12 @@ exports.checkVehicleHistory = function (plate, vin, firstRegistrationDate, optio
   });
 };
 
+/**
+ * the version of the library
+ * @property VERSION
+ * @type String
+ * @static
+ */
+exports.VERSION = meta.VERSION;
 
 module.exports = exports;
