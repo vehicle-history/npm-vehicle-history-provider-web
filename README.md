@@ -25,7 +25,6 @@ npm test
 
 ## Dependencies
 
-- [async](https://github.com/caolan/async): Higher-order functions and common patterns for asynchronous code
 - [html-entities](https://github.com/mdevils/node-html-entities): Faster HTML entities encode/decode library.
 - [request](https://github.com/request/request): Simplified HTTP request client.
 - [vehicle-history-model](https://github.com/vehicle-history/npm-vehicle-history-model): Vehicle history model.
@@ -39,6 +38,10 @@ npm test
 - [istanbul](https://github.com/gotwarlost/istanbul): Yet another JS code coverage tool that computes statement, line, function and branch coverage with module loader hooks to transparently add coverage when running tests. Supports all JS coverage use cases including unit tests, server side functional tests
 - [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
 - [rewire](https://github.com/jhnns/rewire): Easy dependency injection for node.js unit testing
+
+## Changelog
+
+[CHANGELOG](CHANGELOG.md)
 
 
 ## License
