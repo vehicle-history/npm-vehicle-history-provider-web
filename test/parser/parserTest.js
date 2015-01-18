@@ -28,10 +28,10 @@ describe('parser test', function () {
 
     var plate = 'AB1234';
     var vin = 'ABC123456789DEF';
-    var firstRegistrationDate = 'dd.mm.rrrr';
+    var firstRegistrationDate = '11.11.2011';
     var searchCarRequest = new SearchCarRequest(plate, vin, firstRegistrationDate);
 
-    var car = parser.generateReport(body, searchCarRequest, options, function (err, report) {
+    parser.generateReport(body, searchCarRequest, options, function (err, report) {
 
       should.not.exist(err);
       should.exist(report);
@@ -39,7 +39,7 @@ describe('parser test', function () {
 
       var car = report.car;
 
-      car.name.manufacturer.should.equal('manufacturer');
+      car.name.make.should.equal('manufacturer');
       car.name.name.should.equal('name');
       car.name.model.should.equal('model');
 
@@ -51,15 +51,22 @@ describe('parser test', function () {
 
       car.production.year.should.equal(1988);
       car.policy.status.should.equal('OUTDATED');
+
       car.registration.status.should.equal('REGISTERED');
+      car.registration.firstAt.should.equal('11.11.2011');
+
       car.inspection.status.should.equal('UPTODATE');
+
       car.mileage.value.should.equal(111);
       car.mileage.type.should.equal('MILE');
 
       car.stolen.should.be.true();
-      car.plate.should.equal('AB1234');
+
+      car.plate.value.should.equal('AB1234');
+      car.plate.country.should.equal('pl');
+
       car.vin.should.equal('ABC123456789DEF');
-      car.firstRegistrationDate.should.equal('dd.mm.rrrr');
+
       done();
     });
 
