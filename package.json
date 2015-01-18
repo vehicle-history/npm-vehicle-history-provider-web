@@ -6,7 +6,7 @@
   "dependencies": {
     "html-entities": "^1.1.2",
     "request": "^2.51.0",
-    "vehicle-history-model": "^0.9.3",
+    "vehicle-history-model": "^0.9.4",
     "winston": "^0.8.3",
     "www-fields-parser": "^0.1.4"
   },
