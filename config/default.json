@@ -180,6 +180,12 @@
           ]
         },
         {
+          "name": "COUPE",
+          "values": [
+            "coupe"
+          ]
+        },
+        {
           "name": "OTHER",
           "values": [
             "other"
