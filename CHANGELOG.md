@@ -1,3 +1,8 @@
+0.9.4 / 2015-01-29
+  * Merge pull request
+    https://github.com/vehicle-history/npm-vehicle-history-provider-web/issues/4 from
+    vehicle-history/fixed-example-compare
+
 0.9.3 / 2015-01-29
   * Merge pull request
     https://github.com/vehicle-history/npm-vehicle-history-provider-web/issues/3 from
