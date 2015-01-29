@@ -1,3 +1,8 @@
+0.9.3 / 2015-01-29
+  * Merge pull request
+    https://github.com/vehicle-history/npm-vehicle-history-provider-web/issues/3 from
+    vehicle-history/vehicle-not-found-exception
+
 0.9.2 / 2015-01-18
   * Merge pull request
     https://github.com/vehicle-history/npm-vehicle-history-provider-web/issues/2 from
