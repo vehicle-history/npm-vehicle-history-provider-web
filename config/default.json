@@ -279,6 +279,28 @@
             "mile"
           ]
         }
+      ],
+      "countries": [
+        {
+          "name": "PL",
+          "values": [
+            "PL"
+          ]
+        },
+        {
+          "name": "UK",
+          "values": [
+            "UK"
+          ]
+        }
+      ],
+      "makes": [
+        {
+          "name": "AUDI",
+          "values": [
+            "AUDI"
+          ]
+        }
       ]
     }
   },
@@ -291,6 +313,7 @@
   "form": {
     "url": "https://vehiclehost",
     "prefix": "vehiclehistory",
+    "notFoundMessage": "vehicle not found",
     "postUrlHost": "vehiclehost",
     "postUrlRegex": "/action=\"(https\\:\/\/vehiclehost\/strona\\-glowna.+?)\" class/g",
     "headers": {

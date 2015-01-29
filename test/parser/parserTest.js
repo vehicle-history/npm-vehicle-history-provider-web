@@ -10,7 +10,7 @@ describe('parser test', function () {
   it('should generate report', function (done) {
 
     var body = '<html>' +
-      '<div id="manufacturer">manufacturer</div>' +
+      '<div id="manufacturer">AUDI</div>' +
       '<div id="model">model</div>' +
       '<span id="name">name</span>' +
       '<span id="type">van</span>' +
@@ -28,7 +28,7 @@ describe('parser test', function () {
 
     var plate = 'AB1234';
     var vin = 'ABC123456789DEF';
-    var firstRegistrationDate = '11.11.2011';
+    var firstRegistrationDate = '21-11-2011';
     var searchCarRequest = new SearchCarRequest(plate, vin, firstRegistrationDate);
 
     parser.generateReport(body, searchCarRequest, options, function (err, report) {
@@ -39,7 +39,7 @@ describe('parser test', function () {
 
       var car = report.car;
 
-      car.name.make.should.equal('manufacturer');
+      car.name.make.should.equal('AUDI');
       car.name.name.should.equal('name');
       car.name.model.should.equal('model');
 
@@ -53,7 +53,7 @@ describe('parser test', function () {
       car.policy.status.should.equal('OUTDATED');
 
       car.registration.status.should.equal('REGISTERED');
-      car.registration.firstAt.should.equal('11.11.2011');
+      car.registration.firstAt.should.equal('2011-11-21T00:00:00.000Z');
 
       car.inspection.status.should.equal('UPTODATE');
 
@@ -63,10 +63,29 @@ describe('parser test', function () {
       car.stolen.should.be.true();
 
       car.plate.value.should.equal('AB1234');
-      car.plate.country.should.equal('pl');
+      car.plate.country.should.equal('PL');
 
       car.vin.should.equal('ABC123456789DEF');
 
+      done();
+    });
+  });
+
+  it('should throw error on not found', function (done) {
+
+    var body = '<html>' +
+      'vehicle not found' +
+      '</html>';
+
+    var plate = 'AB1222';
+    var vin = 'ABC123456789DEF';
+    var firstRegistrationDate = '21-11-2011';
+    var searchCarRequest = new SearchCarRequest(plate, vin, firstRegistrationDate);
+
+    parser.generateReport(body, searchCarRequest, options, function (err, report) {
+
+      should.not.exist(report);
+      should.exist(err);
       done();
     });
 
