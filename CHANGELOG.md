@@ -1,3 +1,9 @@
+0.9.5 / 2015-01-31
+  * Merge pull request
+    https://github.com/vehicle-history/npm-vehicle-history-provider-web/issues/5 from
+    vehicle-history/assertions-moved-out-errors
+    Assertions support and moved out errors
+
 0.9.4 / 2015-01-29
   * Merge pull request
     https://github.com/vehicle-history/npm-vehicle-history-provider-web/issues/4 from
