@@ -71,7 +71,7 @@ describe('parser test', function () {
     });
   });
 
-  it('should throw error on not found', function (done) {
+  it('should return error on not found', function (done) {
 
     var body = '<html>' +
       'vehicle not found' +
@@ -88,6 +88,5 @@ describe('parser test', function () {
       should.exist(err);
       done();
     });
-
   });
 });
