@@ -2,7 +2,8 @@ var options = require('config');
 var rewire = require('rewire');
 var client = rewire('../../lib/client/client');
 var SearchCarRequest = require('vehicle-history-model').model.SearchCarRequest;
-var UnableFormParseError = require('../../lib/error/unableFormParseError').UnableFormParseError;
+var vehicleHistoryModel = require('vehicle-history-model');
+var ServiceUnavailableError = vehicleHistoryModel.error.ServiceUnavailableError;
 var chai = require('chai');
 var should = chai.should();
 var expect = chai.expect;
@@ -42,14 +43,14 @@ describe('client test', function () {
     done();
   });
 
-  it('should failed to build form (throw UnableFormParseError)', function (done) {
+  it('should failed to build form (throw ServiceUnavailableError)', function (done) {
     var request = new SearchCarRequest('AB1234', 'ABC123456789DEF', '11.12.2014');
     var body = '<input name="notfoundencodedURL" value="notfoundencodedURL">' +
       '<input id="notfoundViewState" value="notfoundViewState">';
 
     (function () {
       client.buildForm(request, body, options.get('form'))
-    }).should.throw(UnableFormParseError);
+    }).should.throw(ServiceUnavailableError);
 
     done();
   });
@@ -325,6 +326,8 @@ describe('client test', function () {
         switch (variable) {
           case 'example' :
             return {
+              plate: "AB1234",
+              vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
             };
           case 'form' :
@@ -375,6 +378,8 @@ describe('client test', function () {
         switch (variable) {
           case 'example' :
             return {
+              plate: "AB1234",
+              vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
             };
           case 'form' :
@@ -432,6 +437,8 @@ describe('client test', function () {
         switch (variable) {
           case 'example' :
             return {
+              plate: "AB1234",
+              vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
             };
           case 'form' :
