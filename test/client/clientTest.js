@@ -62,6 +62,7 @@ describe('client test', function () {
           case 'form' :
             return {
               url: "https://vehiclehost",
+              timeout: 5000,
               postUrlHost: "vehiclehost",
               headers: {
                 'Content-Type': 'application/xhtml+xml',
@@ -104,6 +105,7 @@ describe('client test', function () {
           case 'form' :
             return {
               url: "https://vehiclehost",
+              timeout: 5000,
               postUrlHost: "vehiclehost",
               headers: {
                 'Content-Type': 'application/xhtml+xml',
@@ -146,6 +148,7 @@ describe('client test', function () {
           case 'form' :
             return {
               url: "https://vehiclehost",
+              timeout: 5000,
               postUrlHost: "vehiclehost",
               headers: {
                 'Content-Type': 'application/xhtml+xml',
@@ -188,11 +191,13 @@ describe('client test', function () {
         switch (variable) {
           case 'example' :
             return {
+              timeout: 5000,
               url: "https://vehiclehost/vehicle-history/example.xhtml"
             };
           case 'form' :
             return {
               url: "https://vehiclehost",
+              timeout: 5000,
               postUrlHost: "vehiclehost",
               headers: {
                 'Content-Type': 'application/xhtml+xml',
@@ -209,8 +214,9 @@ describe('client test', function () {
 
     client.__set__({
 
-      requestWithJar: function (url, callback) {
-        url.should.equal('https://vehiclehost/vehicle-history/example.xhtml');
+      requestWithJar: function (opts, callback) {
+        should.exist(opts);
+        opts.url.should.equal('https://vehiclehost/vehicle-history/example.xhtml');
 
         var error = null;
         var response = {statusCode: 200};
@@ -234,11 +240,13 @@ describe('client test', function () {
         switch (variable) {
           case 'example' :
             return {
+              timeout: 5000,
               url: "https://vehiclehost/vehicle-history/example.xhtml"
             };
           case 'form' :
             return {
               url: "https://vehiclehost",
+              timeout: 5000,
               postUrlHost: "vehiclehost",
               headers: {
                 'Content-Type': 'application/xhtml+xml',
@@ -254,8 +262,9 @@ describe('client test', function () {
     };
 
     client.__set__({
-      requestWithJar: function (url, callback) {
-        url.should.equal('https://vehiclehost/vehicle-history/example.xhtml');
+      requestWithJar: function (opts, callback) {
+        should.exist(opts);
+        opts.url.should.equal('https://vehiclehost/vehicle-history/example.xhtml');
 
         var error = new Error('error');
         var response = {statusCode: 500};
@@ -279,6 +288,7 @@ describe('client test', function () {
         switch (variable) {
           case 'example' :
             return {
+              timeout: 5000,
               plate: "AB1234",
               vin: "ABC123456789DEF",
               firstRegistrationDate: "11.12.2014",
@@ -288,6 +298,7 @@ describe('client test', function () {
             return {
               url: "https://vehiclehost",
               postUrlHost: "vehiclehost",
+              timeout: 5000,
               headers: {
                 'Content-Type': 'application/xhtml+xml',
                 'User-Agent': "Mozilla/5.0",
@@ -302,8 +313,10 @@ describe('client test', function () {
     };
 
     client.__set__({
-      requestWithJar: function (url, callback) {
-        url.should.equal('https://vehiclehost/vehicle-history/example.xhtml');
+      requestWithJar: function (opts, callback) {
+        should.exist(opts);
+        opts.url.should.equal('https://vehiclehost/vehicle-history/example.xhtml');
+
         var error = null;
         var response = {statusCode: 200};
         var body = '<form action="https://vehiclehost/strona-glowna?vehicle-history" class ><input name="javax.faces.encodedURL" value="javax.faces.encodedURL"><input id="javax.faces.ViewState" value="javax.faces.ViewState">';
@@ -326,6 +339,7 @@ describe('client test', function () {
         switch (variable) {
           case 'example' :
             return {
+              timeout: 5000,
               plate: "AB1234",
               vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
@@ -333,6 +347,7 @@ describe('client test', function () {
           case 'form' :
             return {
               url: "https://vehiclehost",
+              timeout: 5000,
               postUrlHost: "vehiclehost",
               headers: {
                 'Content-Type': 'application/xhtml+xml',
@@ -378,6 +393,7 @@ describe('client test', function () {
         switch (variable) {
           case 'example' :
             return {
+              timeout: 5000,
               plate: "AB1234",
               vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
@@ -385,6 +401,7 @@ describe('client test', function () {
           case 'form' :
             return {
               url: "https://vehiclehost",
+              timeout: 5000,
               postUrlHost: "vehiclehost",
               headers: {
                 'Content-Type': 'application/xhtml+xml',
@@ -437,6 +454,7 @@ describe('client test', function () {
         switch (variable) {
           case 'example' :
             return {
+              timeout: 5000,
               plate: "AB1234",
               vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
@@ -444,6 +462,7 @@ describe('client test', function () {
           case 'form' :
             return {
               url: "https://vehiclehost",
+              timeout: 5000,
               postUrlHost: "vehiclehost",
               headers: {
                 'Content-Type': 'application/xhtml+xml',
