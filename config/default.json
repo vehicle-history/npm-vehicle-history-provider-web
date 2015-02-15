@@ -6,7 +6,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "#manufacturer"
+            "opts": ["#manufacturer"]
           }
         ]
       },
@@ -15,7 +15,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "span#name"
+            "opts": ["span#name"]
           }
         ]
       },
@@ -24,7 +24,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "div#model"
+            "opts": ["div#model"]
           }
         ]
       },
@@ -33,7 +33,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "span#type"
+            "opts": ["span#type"]
           }
         ]
       },
@@ -42,7 +42,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "span#kind"
+            "opts": ["span#kind"]
           }
         ]
       },
@@ -51,7 +51,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "span#cc"
+            "opts": ["span#cc"]
           }
         ]
       },
@@ -60,7 +60,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "span#fuel"
+            "opts": ["span#fuel"]
           }
         ]
       },
@@ -69,7 +69,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "p.year span.strong"
+            "opts": ["p.year span.strong"]
           }
         ]
       },
@@ -78,7 +78,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "p.oc span.strong"
+            "opts": ["p.oc span.strong"]
           },
           {
             "type": "trim"
@@ -90,7 +90,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "p.status span.strong"
+            "opts": ["p.status span.strong"]
           },
           {
             "type": "trim"
@@ -102,7 +102,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "p.tech span.strong"
+            "opts": ["p.tech span.strong"]
           },
           {
             "type": "trim"
@@ -114,7 +114,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "#mileageeeee"
+            "opts": ["#mileageeeee"]
           },
           {
             "type": "trim"
@@ -126,7 +126,7 @@
         "stages": [
           {
             "type": "selector",
-            "selector": "#mileagetype"
+            "opts": ["#mileagetype"]
           },
           {
             "type": "trim"
@@ -138,7 +138,86 @@
         "stages": [
           {
             "type": "selector",
-            "selector": ".stolen"
+            "opts": [".stolen"]
+          }
+        ]
+      },
+      {
+        "name": "events",
+        "stages": [
+          {
+            "type": "group",
+            "opts": [
+              {
+                "context": "#tasks",
+                "elements": ".task",
+                "fields": [
+                  {
+                    "name": "name",
+                    "stages": [
+                      {
+                        "type": "selector",
+                        "opts": [".name p"]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "image",
+                    "stages": [
+                      {
+                        "type": "selector",
+                        "opts": [".image img|src"]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "description",
+                    "stages": [
+                      {
+                        "type": "selector",
+                        "opts": [".description p"]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "once",
+                    "stages": [
+                      {
+                        "type": "selector",
+                        "opts": [".once"]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "socket",
+                    "stages": [
+                      {
+                        "type": "selector",
+                        "opts": [".socket"]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "file",
+                    "stages": [
+                      {
+                        "type": "selector",
+                        "opts": [".file"]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "notexists",
+                    "stages": [
+                      {
+                        "type": "selector",
+                        "opts": [".notexists"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         ]
       }

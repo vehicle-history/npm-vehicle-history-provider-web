@@ -3,7 +3,6 @@ var SearchCarRequest = require('vehicle-history-model').model.SearchCarRequest;
 var parser = require('../../lib/parser/parser');
 var chai = require('chai');
 var should = chai.should();
-var expect = chai.expect;
 
 describe('parser test', function () {
 
@@ -24,6 +23,10 @@ describe('parser test', function () {
       '<p class="oc"><span class="strong"> not actual </span></p>' +
       '<p class="status"><span class="strong"> registered </span></p>' +
       '<p class="tech"><span class="strong"> actual </span></p>' +
+      '<table id="tasks">' +
+      '<tr class="task"><td class="name" scope="row"><p>name of task</p></td><td class="image"><img src="/image.png" alt=""/></td><td class="description Task"><p class="Task">Task description</p></td><td class="socket"><p class="cs">Task socket</p></td><td class="file"><p class="fi">Task file</p></td></tr>' +
+      '<tr class="task"><td class="name" scope="row"><p>name2 of task</p></td><td class="image"><img src="/image2.png" alt=""/></td><td class="description Task"><p class="Task">Task2 description</p></td><td class="once Task"><p class="oone">Task2 once</p></td></tr>' +
+      '</table>' +
       '</html>';
 
     var plate = 'AB1234';
@@ -60,7 +63,7 @@ describe('parser test', function () {
       car.mileage.value.should.equal(111);
       car.mileage.type.should.equal('MILE');
 
-      car.stolen.should.be.true();
+      car.stolen.should.be.true;
 
       car.plate.value.should.equal('AB1234');
       car.plate.country.should.equal('PL');

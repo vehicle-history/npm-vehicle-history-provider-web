@@ -13,14 +13,14 @@ describe('client test', function () {
   it('should be example vehicle', function (done) {
     var request = new SearchCarRequest('AB1234', 'ABC123456789DEF', '11.12.2014');
     var isExample = client.isExampleVehicle(request, options.get('example'));
-    expect(isExample).to.be.true();
+    expect(isExample).to.be.true;
     done();
   });
 
   it('should not be example vehicle', function (done) {
     var request = new SearchCarRequest('www', 'ccc', '111.mm.rrrr');
     var isExample = client.isExampleVehicle(request, options.get('example'));
-    expect(isExample).to.be.false();
+    expect(isExample).to.be.false;
     done();
   });
 

@@ -3,7 +3,6 @@ var index = rewire('../index');
 var options = require('config');
 var chai = require('chai');
 var should = chai.should();
-var expect = chai.expect;
 
 var body = '';
 
