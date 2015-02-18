@@ -166,7 +166,7 @@
                     "stages": [
                       {
                         "type": "selector",
-                        "opts": [".image img|src"]
+                        "opts": [".image img", null, "attr=src"]
                       }
                     ]
                   },
@@ -378,6 +378,46 @@
           "name": "AUDI",
           "values": [
             "AUDI"
+          ]
+        }
+      ],
+      "owners": [
+        {
+          "name": "PRIVATE",
+          "values": [
+            "private"
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "CHANGE_OWNER",
+          "values": [
+            "first-owner"
+          ]
+        },
+        {
+          "name": "REGISTRATION",
+          "values": [
+            "first-registration"
+          ]
+        },
+        {
+          "name": "ABROAD_REGISTRATION",
+          "values": [
+            "abroad-registration"
+          ]
+        },
+        {
+          "name": "DEREGISTRATION",
+          "values": [
+            "deregistration"
+          ]
+        },
+        {
+          "name": "INSPECTON",
+          "values": [
+            "inspection"
           ]
         }
       ]
