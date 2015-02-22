@@ -149,24 +149,24 @@
             "type": "group",
             "opts": [
               {
-                "context": "#tasks",
-                "elements": ".task",
+                "context": "table#events tbody",
+                "elements": "tr.event",
                 "fields": [
                   {
-                    "name": "name",
+                    "name": "date",
                     "stages": [
                       {
                         "type": "selector",
-                        "opts": [".name p"]
+                        "opts": [".date p"]
                       }
                     ]
                   },
                   {
-                    "name": "image",
+                    "name": "type",
                     "stages": [
                       {
                         "type": "selector",
-                        "opts": [".image img", null, "attr=src"]
+                        "opts": [".type"]
                       }
                     ]
                   },
@@ -176,42 +176,45 @@
                       {
                         "type": "selector",
                         "opts": [".description p"]
+                      },
+                      {
+                        "type": "trim"
                       }
                     ]
                   },
                   {
-                    "name": "once",
+                    "name": "owner",
                     "stages": [
                       {
                         "type": "selector",
-                        "opts": [".once"]
+                        "opts": [".owner"]
                       }
                     ]
                   },
                   {
-                    "name": "socket",
+                    "name": "location",
                     "stages": [
                       {
                         "type": "selector",
-                        "opts": [".socket"]
+                        "opts": [".location"]
                       }
                     ]
                   },
                   {
-                    "name": "file",
+                    "name": "note",
                     "stages": [
                       {
                         "type": "selector",
-                        "opts": [".file"]
+                        "opts": [".note"]
                       }
                     ]
                   },
                   {
-                    "name": "notexists",
+                    "name": "mileage",
                     "stages": [
                       {
                         "type": "selector",
-                        "opts": [".notexists"]
+                        "opts": [".mileage"]
                       }
                     ]
                   }

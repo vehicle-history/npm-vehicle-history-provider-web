@@ -1,7 +1,7 @@
 var options = require('config');
 var rewire = require('rewire');
 var client = rewire('../../lib/client/client');
-var SearchCarRequest = require('vehicle-history-model').model.SearchCarRequest;
+var SearchCarRequestBuilder = require('vehicle-history-model').model.searchCarRequest.SearchCarRequestBuilder;
 var vehicleHistoryModel = require('vehicle-history-model');
 var ServiceUnavailableError = vehicleHistoryModel.error.ServiceUnavailableError;
 var chai = require('chai');
@@ -10,33 +10,44 @@ var expect = chai.expect;
 
 describe('client test', function () {
 
+  var request = new SearchCarRequestBuilder()
+    .withPlate('plate')
+    .withVin('vin')
+    .withFirstRegistrationDate('date')
+    .withCountry('PL')
+    .build();
+
+  var requestExample = new SearchCarRequestBuilder()
+    .withPlate('AB12345')
+    .withVin('ABC123456789DEF')
+    .withFirstRegistrationDate('11.12.2014')
+    .withCountry('PL')
+    .build();
+
   it('should be example vehicle', function (done) {
-    var request = new SearchCarRequest('AB1234', 'ABC123456789DEF', '11.12.2014');
-    var isExample = client.isExampleVehicle(request, options.get('example'));
+    var isExample = client.isExampleVehicle(requestExample, options.get('example'));
     expect(isExample).to.be.true;
     done();
   });
 
   it('should not be example vehicle', function (done) {
-    var request = new SearchCarRequest('www', 'ccc', '111.mm.rrrr');
     var isExample = client.isExampleVehicle(request, options.get('example'));
     expect(isExample).to.be.false;
     done();
   });
 
   it('should build form', function (done) {
-    var request = new SearchCarRequest('AB1234', 'ABC123456789DEF', '11.12.2014');
     var body = '<input name="javax.faces.encodedURL" value="javax.faces.encodedURL">' +
       '<input id="javax.faces.ViewState" value="javax.faces.ViewState">';
 
-    var form = client.buildForm(request, body, options.get('form'));
+    var form = client.buildForm(requestExample, body, options.get('form'));
 
     expect(form).to.not.be.empty;
     expect(form['vehiclehistory:buttonCheck']).to.equal('Check');
     expect(form['vehiclehistory:form']).to.equal('vehiclehistory:form');
     expect(form['javax.faces.encodedURL']).to.equal('javax.faces.encodedURL');
     expect(form['javax.faces.ViewState']).to.equal('javax.faces.ViewState');
-    expect(form['vehiclehistory:plate']).to.equal('AB1234');
+    expect(form['vehiclehistory:plate']).to.equal('AB12345');
     expect(form['vehiclehistory:vin']).to.equal('ABC123456789DEF');
     expect(form['vehiclehistory:date']).to.equal('11.12.2014');
 
@@ -44,12 +55,11 @@ describe('client test', function () {
   });
 
   it('should failed to build form (throw ServiceUnavailableError)', function (done) {
-    var request = new SearchCarRequest('AB1234', 'ABC123456789DEF', '11.12.2014');
     var body = '<input name="notfoundencodedURL" value="notfoundencodedURL">' +
       '<input id="notfoundViewState" value="notfoundViewState">';
 
     (function () {
-      client.buildForm(request, body, options.get('form'))
+      client.buildForm(requestExample, body, options.get('form'))
     }).should.throw(ServiceUnavailableError);
 
     done();
@@ -89,7 +99,6 @@ describe('client test', function () {
       }
     });
 
-    var request = new SearchCarRequest('www', 'ccc', '111.mm.rrrr');
     client.prepareFormData(request, options.get('form'), function (err, date) {
       should.exist(date);
       should.not.exist(err);
@@ -132,7 +141,6 @@ describe('client test', function () {
       }
     });
 
-    var request = new SearchCarRequest('www', 'ccc', '111.mm.rrrr');
     client.prepareFormData(request, options.get('form'), function (err, date) {
       should.exist(err);
       should.not.exist(date);
@@ -176,8 +184,7 @@ describe('client test', function () {
       }
     });
 
-    var req = new SearchCarRequest('www', 'ccc', '111.mm.rrrr');
-    client.prepareFormData(req, options.get('form'), function (err, date) {
+    client.prepareFormData(request, options.get('form'), function (err, date) {
       should.exist(err);
       should.not.exist(date);
       done();
@@ -225,8 +232,7 @@ describe('client test', function () {
       }
     });
 
-    var request = new SearchCarRequest('AB1234', 'ABC123456789DEF', '11.12.2014');
-    client.loadExampleVehicleHistory(request, options.get('example'), function (err, body) {
+    client.loadExampleVehicleHistory(requestExample, options.get('example'), function (err, body) {
       should.exist(body);
       should.not.exist(err);
       done();
@@ -273,8 +279,7 @@ describe('client test', function () {
       }
     });
 
-    var request = new SearchCarRequest('AB1234', 'ABC123456789DEF', '11.12.2014');
-    client.loadExampleVehicleHistory(request, options.get('example'), function (err, body) {
+    client.loadExampleVehicleHistory(requestExample, options.get('example'), function (err, body) {
       should.exist(err);
       should.not.exist(body);
       done();
@@ -289,7 +294,7 @@ describe('client test', function () {
           case 'example' :
             return {
               timeout: 5000,
-              plate: "AB1234",
+              plate: "AB12345",
               vin: "ABC123456789DEF",
               firstRegistrationDate: "11.12.2014",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
@@ -324,8 +329,7 @@ describe('client test', function () {
       }
     });
 
-    var request = new SearchCarRequest('AB1234', 'ABC123456789DEF', '11.12.2014');
-    client.getVehicleHistory(request, options, function (err, date) {
+    client.getVehicleHistory(requestExample, options, function (err, date) {
       should.exist(date);
       should.not.exist(err);
       done();
@@ -340,7 +344,7 @@ describe('client test', function () {
           case 'example' :
             return {
               timeout: 5000,
-              plate: "AB1234",
+              plate: "AB12345",
               vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
             };
@@ -378,7 +382,6 @@ describe('client test', function () {
       }
     });
 
-    var request = new SearchCarRequest('plate', 'vin', 'date');
     client.getVehicleHistory(request, options, function (err, date) {
       should.exist(date);
       should.not.exist(err);
@@ -394,7 +397,7 @@ describe('client test', function () {
           case 'example' :
             return {
               timeout: 5000,
-              plate: "AB1234",
+              plate: "AB12345",
               vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
             };
@@ -438,7 +441,6 @@ describe('client test', function () {
       }
     });
 
-    var request = new SearchCarRequest('plate', 'vin', 'date');
     client.getVehicleHistory(request, options, function (err, date) {
       should.exist(err);
       should.not.exist(date);
@@ -455,7 +457,7 @@ describe('client test', function () {
           case 'example' :
             return {
               timeout: 5000,
-              plate: "AB1234",
+              plate: "AB12345",
               vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
             };
@@ -510,7 +512,6 @@ describe('client test', function () {
       }
     });
 
-    var request = new SearchCarRequest('plate', 'vin', 'date');
     client.getVehicleHistory(request, options, function (err, date) {
       should.exist(date);
       should.not.exist(err);
@@ -552,7 +553,7 @@ describe('client test', function () {
       }
     });
 
-    var request = new SearchCarRequest('plate', 'vin', 'date');
+
     client.getVehicleHistory(request, options, function (err, body) {
 //      console.log('err', err);
 //      console.log('car', car);

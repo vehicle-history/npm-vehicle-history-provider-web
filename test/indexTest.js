@@ -1,4 +1,5 @@
 var rewire = require('rewire');
+var SearchCarRequestBuilder = require('vehicle-history-model').model.searchCarRequest.SearchCarRequestBuilder;
 var index = rewire('../index');
 var options = require('config');
 var chai = require('chai');
@@ -35,8 +36,16 @@ describe('index test', function () {
     var plate = 'pwr 17wq';
     var vin = 'ABC123456789DEF';
     var firstRegistrationDate = '11.11.2000';
+    var country = 'PL';
 
-    index.checkVehicleHistory(plate, vin, firstRegistrationDate, options, function (err, result) {
+    var searchCarRequest = new SearchCarRequestBuilder()
+      .withPlate(plate)
+      .withVin(vin)
+      .withFirstRegistrationDate(firstRegistrationDate)
+      .withCountry(country)
+      .build();
+
+    index.checkVehicleHistory(searchCarRequest, options, function (err, result) {
       should.not.exist(err);
       should.exist(result);
       done();

@@ -20,9 +20,9 @@
   },
   "scripts": {
     "prepublish": "npm prune",
-    "test": "mocha test/*",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks test/*",
-    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- test/*"
+    "test": "mocha --recursive test",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --recursive test",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --recursive test"
   },
   "repository": {
     "type": "git",
