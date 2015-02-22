@@ -2,14 +2,11 @@ var meta = require('./lib/meta');
 var logger = require('./lib/logger/logger').logger;
 var client = require('./lib/client/client');
 var parser = require('./lib/parser/parser');
-var SearchCarRequest = require('vehicle-history-model').model.SearchCarRequest;
 
 var exports = {};
 
-exports.checkVehicleHistory = function (plate, vin, firstRegistrationDate, options, callback) {
-  logger.debug('checkCarHistory: plate:' + plate + ', vin:' + vin + ', firstRegistrationDate:' + firstRegistrationDate);
-
-  var searchCarRequest = new SearchCarRequest(plate, vin, firstRegistrationDate);
+exports.checkVehicleHistory = function (searchCarRequest, options, callback) {
+  logger.debug('checkVehicleHistory:', searchCarRequest);
 
   client.getVehicleHistory(searchCarRequest, options, function (err, body) {
 
