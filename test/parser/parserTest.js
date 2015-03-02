@@ -13,7 +13,7 @@ describe('parser test', function () {
       '<div id="manufacturer">AUDI</div>' +
       '<div id="model">model</div>' +
       '<span id="name">name</span>' +
-      '<span id="type">van</span>' +
+      '<span id="type">car</span>' +
       '<span id="kind">limousine</span>' +
       '<span id="cc">1396</span>' +
       '<span id="fuel">diesel</span>' +
@@ -46,38 +46,38 @@ describe('parser test', function () {
 
       should.not.exist(err);
       should.exist(report);
-      should.exist(report.car);
+      should.exist(report.vehicle);
       should.exist(report.events);
 
-      var car = report.car;
+      var vehicle = report.vehicle;
 
-      car.name.make.should.equal('AUDI');
-      car.name.name.should.equal('name');
-      car.name.model.should.equal('model');
+      vehicle.name.make.should.equal('AUDI');
+      vehicle.name.name.should.equal('name');
+      vehicle.name.model.should.equal('model');
 
-      car.type.type.should.equal('VAN');
-      car.type.kind.should.equal('LIMOUSINE');
+      vehicle.type.type.should.equal('CAR');
+      vehicle.type.kind.should.equal('LIMOUSINE');
 
-      car.engine.cubicCapacity.should.equal(1396);
-      car.engine.fuel.should.equal('DIESEL');
+      vehicle.engine.cubicCapacity.should.equal(1396);
+      vehicle.engine.fuel.should.equal('DIESEL');
 
-      car.production.year.should.equal(1988);
-      car.policy.status.should.equal('OUTDATED');
+      vehicle.production.year.should.equal(1988);
+      vehicle.policy.status.should.equal('OUTDATED');
 
-      car.registration.status.should.equal('REGISTERED');
-//      car.registration.firstAt.should.equal('2011-11-21T00:00:00.000Z');
+      vehicle.registration.status.should.equal('REGISTERED');
+//      vehicle.registration.firstAt.should.equal('2011-11-21T00:00:00.000Z');
 
-      car.inspection.status.should.equal('UPTODATE');
+      vehicle.inspection.status.should.equal('UPTODATE');
 
-      car.mileage.value.should.equal(111);
-      car.mileage.type.should.equal('MILE');
+      vehicle.mileage.value.should.equal(111);
+      vehicle.mileage.type.should.equal('MILE');
 
-      car.stolen.should.be.true;
+      vehicle.stolen.should.be.true;
 
-      car.plate.value.should.equal('AB1234');
-      car.plate.country.should.equal('PL');
+      vehicle.plate.value.should.equal('AB1234');
+      vehicle.plate.country.should.equal('PL');
 
-      car.vin.should.equal('ABC123456789DEF');
+      vehicle.vin.should.equal('ABC123456789DEF');
 
       var events = report.events;
 
