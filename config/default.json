@@ -418,9 +418,33 @@
           ]
         },
         {
-          "name": "INSPECTON",
+          "name": "INSPECTION",
           "values": [
             "inspection"
+          ]
+        },
+        {
+          "name": "CO_OWNER",
+          "values": [
+            "co-owner"
+          ]
+        },
+        {
+          "name": "HOLDER",
+          "values": [
+            "holder"
+          ]
+        },
+        {
+          "name": "CHANGED_REGISTRATION_LOCATION",
+          "values": [
+            "changed-registration-location"
+          ]
+        },
+        {
+          "name": "STOLEN",
+          "values": [
+            "stolen"
           ]
         }
       ]
