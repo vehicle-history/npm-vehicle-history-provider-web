@@ -25,8 +25,8 @@ describe('parser test', function () {
       '<p class="status"><span class="strong"> registered </span></p>' +
       '<p class="tech"><span class="strong"> actual </span></p>' +
       '<table id="events"><tbody>' +
-      '<tr class="event"><td class="date" scope="row"><p>21-11-2011</p></td><td class="type">inspection</td><td class="description"><p class="Task">description</p></td><td class="owner">XX</td><td class="location">location</td><td class="note">note</td><td class="mileage">177000 KM</td></tr>' +
-      '<tr class="event"><td class="date" scope="row"><p>22-11-2011</p></td><td class="type">first-registration</td><td class="description"><p class="Task">description</p></td></tr>' +
+      '<tr class="event"><td class="date" scope="row"><p>21-11-2011</p></td><td class="type">inspection</td><td class="description"><p class="Task">inspection-description</p></td><td class="owner">XX</td><td class="location">location</td><td class="note">note</td><td class="mileage">177000 KM</td></tr>' +
+      '<tr class="event"><td class="date" scope="row"><p>22-11-2011</p></td><td class="type">first-registration</td><td class="description"><p class="Task">first-registration-description</p></td></tr>' +
       '</tbody></table>' +
       '</html>';
 
@@ -91,7 +91,7 @@ describe('parser test', function () {
       expect(events).to.have.deep.property('[0].abroadRegistration', null);
       expect(events).to.have.deep.property('[0].mileage', null);
 
-      expect(events).to.have.deep.property('[1].type', 'INSPECTON');
+      expect(events).to.have.deep.property('[1].type', 'INSPECTION');
 //      expect(events).to.have.deep.property('[1].createdAt', '2013-06-17T00:00:00.000Z');
       expect(events).to.have.deep.property('[1].note', null);
       expect(events).to.have.deep.property('[1].firstOwner', null);
