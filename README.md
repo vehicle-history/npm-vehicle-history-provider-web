@@ -1,8 +1,10 @@
 # vehicle-history-provider-web
 [![npm version](https://badge.fury.io/js/vehicle-history-provider-web.svg)](http://badge.fury.io/js/vehicle-history-provider-web)
+[![bitHound Score](https://www.bithound.io/github/vehicle-history/npm-vehicle-history-provider-web/badges/score.svg)](https://www.bithound.io/github/vehicle-history/npm-vehicle-history-provider-web)
 [![Coverage Status](https://coveralls.io/repos/vehicle-history/npm-vehicle-history-provider-web/badge.svg?branch=master)](https://coveralls.io/r/vehicle-history/npm-vehicle-history-provider-web?branch=master)
 [![Build Status](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-web.svg?branch=master)](https://travis-ci.org/vehicle-history/npm-vehicle-history-provider-web)
 [![Dependency Status](https://david-dm.org/vehicle-history/npm-vehicle-history-provider-web.svg)](https://david-dm.org/vehicle-history/npm-vehicle-history-provider-web)
+[![devDependency Status](https://david-dm.org/vehicle-history/npm-vehicle-history-provider-web/dev-status.svg)](https://david-dm.org/vehicle-history/npm-vehicle-history-provider-web#info=devDependencies)
 
 [![NPM](https://nodei.co/npm/vehicle-history-provider-web.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vehicle-history-provider-web/)
 
@@ -26,10 +28,12 @@ npm test
 
 ## Dependencies
 
+- [assert-plus](https://github.com/mcavage/node-assert-plus): Extra assertions on top of node&#39;s assert module
 - [html-entities](https://github.com/mdevils/node-html-entities): Faster HTML entities encode/decode library.
 - [request](https://github.com/request/request): Simplified HTTP request client.
 - [vehicle-history-model](https://github.com/vehicle-history/npm-vehicle-history-model): Vehicle history model.
 - [winston](https://github.com/flatiron/winston): A multi-transport async logging library for Node.js
+- [winston-loggly](https://github.com/indexzero/winston-loggly): A Loggly transport for winston
 - [www-fields-parser](https://github.com/Zenedith/npm-www-fields-parser): Web page parser based on cheerio
 
 ## Dev Dependencies
