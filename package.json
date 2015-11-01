@@ -7,10 +7,10 @@
     "assert-plus": "^0.1.5",
     "html-entities": "^1.2.0",
     "request": "^2.65.0",
-    "vehicle-history-model": "^0.9.46",
+    "vehicle-history-model": "^0.9.47",
     "winston": "^2.0.0",
     "winston-loggly": "^1.2.0",
-    "www-fields-parser": "^0.1.7"
+    "www-fields-parser": "^0.1.8"
   },
   "devDependencies": {
     "config": "^1.16.0",
