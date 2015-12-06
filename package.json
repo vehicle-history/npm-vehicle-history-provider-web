@@ -4,7 +4,7 @@
   "description": "Vehicle history web provider using car plate and vin number.",
   "main": "./index.js",
   "dependencies": {
-    "assert-plus": "^0.1.5",
+    "assert-plus": "^0.2.0",
     "html-entities": "^1.2.0",
     "request": "^2.65.0",
     "vehicle-history-model": "^0.9.47",
