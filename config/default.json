@@ -452,7 +452,7 @@
   },
   "example": {
     "timeout": 5000,
-    "plate": "AB1234",
+    "plate": "BBC12345",
     "vin": "ABC123456789DEF",
     "url": "https://vehiclehost/vehicle-history.xhtml"
   },

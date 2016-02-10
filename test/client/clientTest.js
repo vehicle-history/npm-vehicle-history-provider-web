@@ -18,7 +18,7 @@ describe('client test', function () {
     .build();
 
   var requestExample = new SearchCarRequestBuilder()
-    .withPlate('AB12345')
+    .withPlate('BBC12345')
     .withVin('ABC123456789DEF')
     .withFirstRegistrationDate('11.12.2014')
     .withCountry('PL')
@@ -47,7 +47,7 @@ describe('client test', function () {
     expect(form['vehiclehistory:form']).to.equal('vehiclehistory:form');
     expect(form['javax.faces.encodedURL']).to.equal('javax.faces.encodedURL');
     expect(form['javax.faces.ViewState']).to.equal('javax.faces.ViewState');
-    expect(form['vehiclehistory:plate']).to.equal('AB12345');
+    expect(form['vehiclehistory:plate']).to.equal('BBC12345');
     expect(form['vehiclehistory:vin']).to.equal('ABC123456789DEF');
     expect(form['vehiclehistory:date']).to.equal('11.12.2014');
 
@@ -294,7 +294,7 @@ describe('client test', function () {
           case 'example' :
             return {
               timeout: 5000,
-              plate: "AB12345",
+              plate: "BBC12345",
               vin: "ABC123456789DEF",
               firstRegistrationDate: "11.12.2014",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
@@ -344,7 +344,7 @@ describe('client test', function () {
           case 'example' :
             return {
               timeout: 5000,
-              plate: "AB12345",
+              plate: "BBC12345",
               vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
             };
@@ -397,7 +397,7 @@ describe('client test', function () {
           case 'example' :
             return {
               timeout: 5000,
-              plate: "AB12345",
+              plate: "BBC12345",
               vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
             };
@@ -457,7 +457,7 @@ describe('client test', function () {
           case 'example' :
             return {
               timeout: 5000,
-              plate: "AB12345",
+              plate: "BBC12345",
               vin: "ABC123456789DEF",
               url: "https://vehiclehost/vehicle-history/example.xhtml"
             };
