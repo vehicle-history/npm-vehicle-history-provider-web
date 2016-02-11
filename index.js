@@ -15,7 +15,7 @@ exports.checkVehicleHistory = function (searchCarRequest, options, callback) {
       return callback(err);
     }
 
-    return parser.generateReport(body, searchCarRequest, options, callback);
+    return parser.generateReportData(body, searchCarRequest, options, callback);
   });
 };
 

@@ -42,7 +42,7 @@ describe('parser test', function () {
       .withCountry(country)
       .build();
 
-    parser.generateReport(body, searchCarRequest, options, function (err, report) {
+    parser.generateReportData(body, searchCarRequest, options, function (err, report) {
 
       should.not.exist(err);
       should.exist(report);
@@ -132,7 +132,7 @@ describe('parser test', function () {
       .withCountry(country)
       .build();
 
-    parser.generateReport(body, searchCarRequest, options, function (err, report) {
+    parser.generateReportData(body, searchCarRequest, options, function (err, report) {
 
       should.not.exist(report);
       should.exist(err);
