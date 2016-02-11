@@ -20,7 +20,7 @@ describe('index test', function () {
       }
     },
     parser: {
-      generateReport: function (content, searchCarRequest, options, callback) {
+      generateReportData: function (content, searchCarRequest, options, callback) {
         content.should.equal(body);
         searchCarRequest.plate.should.equal('pwr 17wq');
         searchCarRequest.vin.should.equal('ABC123456789DEF');
