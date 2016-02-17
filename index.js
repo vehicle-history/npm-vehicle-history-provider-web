@@ -3,9 +3,7 @@ var logger = require('./lib/logger/logger').logger;
 var client = require('./lib/client/client');
 var parser = require('./lib/parser/parser');
 
-var exports = {};
-
-exports.checkVehicleHistory = function (searchCarRequest, options, callback) {
+var checkVehicleHistory = function checkVehicleHistory(searchCarRequest, options, callback) {
   logger.debug('checkVehicleHistory:', searchCarRequest);
 
   client.getVehicleHistory(searchCarRequest, options, function (err, body) {
@@ -15,16 +13,11 @@ exports.checkVehicleHistory = function (searchCarRequest, options, callback) {
       return callback(err);
     }
 
-    return parser.generateReport(body, searchCarRequest, options, callback);
+    return parser.generateReportData(body, searchCarRequest, options, callback);
   });
 };
 
-/**
- * the version of the library
- * @property VERSION
- * @type String
- * @static
- */
-exports.VERSION = meta.VERSION;
-
-module.exports = exports;
+module.exports = {
+  checkVehicleHistory: checkVehicleHistory,
+  VERSION: meta.VERSION
+};
