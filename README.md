@@ -32,7 +32,7 @@ npm test
 - [html-entities](https://github.com/mdevils/node-html-entities): Faster HTML entities encode/decode library.
 - [request](https://github.com/request/request): Simplified HTTP request client.
 - [vehicle-history-model](https://github.com/vehicle-history/npm-vehicle-history-model): Vehicle history model.
-- [winston](https://github.com/flatiron/winston): A multi-transport async logging library for Node.js
+- [winston](https://github.com/winstonjs/winston): A multi-transport async logging library for Node.js
 - [winston-loggly](https://github.com/indexzero/winston-loggly): A Loggly transport for winston
 - [www-fields-parser](https://github.com/Zenedith/npm-www-fields-parser): Web page parser based on cheerio
 
@@ -44,6 +44,7 @@ npm test
 - [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
 - [rewire](https://github.com/jhnns/rewire): Easy dependency injection for node.js unit testing
 
+
 ## Changelog
 
 [CHANGELOG](CHANGELOG.md)
@@ -52,7 +53,7 @@ npm test
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015 Zenedith
+Copyright (c) 2015-2016 Zenedith
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
