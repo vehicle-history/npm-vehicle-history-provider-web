@@ -6,16 +6,16 @@
   "dependencies": {
     "assert-plus": "1.0.0",
     "html-entities": "1.2.0",
-    "request": "2.69.0",
+    "request": "2.72.0",
     "vehicle-history-model": "0.13.0",
     "winston": "2.2.0",
     "winston-loggly": "1.3.1",
     "www-fields-parser": "0.1.10"
   },
   "devDependencies": {
-    "config": "1.19.0",
+    "config": "1.20.1",
     "chai": "3.5.0",
-    "istanbul": "0.4.2",
+    "istanbul": "0.4.3",
     "mocha": "2.4.5",
     "rewire": "2.5.1"
   },
