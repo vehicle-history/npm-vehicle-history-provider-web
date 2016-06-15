@@ -13,10 +13,10 @@
     "www-fields-parser": "0.1.10"
   },
   "devDependencies": {
-    "config": "1.20.1",
     "chai": "3.5.0",
+    "config": "1.21.0",
     "istanbul": "0.4.3",
-    "mocha": "2.4.5",
+    "mocha": "2.5.3",
     "rewire": "2.5.1"
   },
   "scripts": {
