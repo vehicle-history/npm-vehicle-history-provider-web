@@ -1,3 +1,5 @@
+'use strict';
+
 var meta = require('./lib/meta');
 var logger = require('./lib/logger/logger').logger;
 var client = require('./lib/client/client');
