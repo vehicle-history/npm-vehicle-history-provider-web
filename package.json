@@ -1,6 +1,6 @@
 {
   "name": "vehicle-history-provider-web",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vehicle history web provider using car plate and vin number.",
   "main": "./index.js",
   "dependencies": {
@@ -54,6 +54,6 @@
     "node": ">=5.6.0"
   },
   "readmeFilename": "README.md",
-  "_id": "vehicle-history-provider-web@1.0.2",
-  "_from": "vehicle-history-provider-web@^1.0.2"
+  "_id": "vehicle-history-provider-web@1.0.3",
+  "_from": "vehicle-history-provider-web@^1.0.3"
 }
