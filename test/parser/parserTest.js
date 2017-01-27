@@ -1,15 +1,15 @@
-var options = require('config');
-var SearchCarRequestBuilder = require('vehicle-history-model').model.searchCarRequest.SearchCarRequestBuilder;
-var parser = require('../../lib/parser/parser');
-var chai = require('chai');
-var should = chai.should();
-var expect = chai.expect;
+const options = require('config');
+const SearchCarRequestBuilder = require('vehicle-history-model').model.searchCarRequest.SearchCarRequestBuilder;
+const parser = require('../../lib/parser/parser');
+const chai = require('chai');
+const should = chai.should();
+const expect = chai.expect;
 
-describe('parser test', function () {
+describe('parser test', () => {
 
-  it('should generate vehicle report', function (done) {
+  it('should generate vehicle report', done => {
 
-    var body = '<html>' +
+    const body = '<html>' +
       '<div id="manufacturer">AUDI</div>' +
       '<div id="model">model</div>' +
       '<span id="name">name</span>' +
@@ -30,19 +30,19 @@ describe('parser test', function () {
       '</tbody></table>' +
       '</html>';
 
-    var plate = 'AAE 1111';
-    var vin = 'ABC123456789DEF';
-    var firstRegistrationDate = '21-11-2011';
-    var country = 'PL';
+    const plate = 'AAE 1111';
+    const vin = 'ABC123456789DEF';
+    const firstRegistrationDate = '21-11-2011';
+    const country = 'PL';
 
-    var searchCarRequest = new SearchCarRequestBuilder()
+    const searchCarRequest = new SearchCarRequestBuilder()
       .withPlate(plate)
       .withVin(vin)
       .withFirstRegistrationDate(firstRegistrationDate)
       .withCountry(country)
       .build();
 
-    parser.generateReportData(body, searchCarRequest, options, function (err, data) {
+    parser.generateReportData(body, searchCarRequest, options, (err, data) => {
 
       should.not.exist(err);
       should.exist(data);
@@ -78,10 +78,10 @@ describe('parser test', function () {
 
       expect(data).to.have.property('vin.value', 'ABC123456789DEF');
 
-      var events = data.events;
+      const events = data.events;
 
       expect(events).to.have.deep.property('[0].type', 'INSPECTION');
-//      expect(events).to.have.deep.property('[0].createdAt', '2013-06-17T00:00:00.000Z');
+      // expect(events).to.have.deep.property('[0].createdAt', '2013-06-17T00:00:00.000Z');
       expect(events).to.have.deep.property('[0].note', 'note');
       expect(events).to.have.deep.property('[0].firstOwner', null);
       expect(events).to.have.deep.property('[0].ownerType', 'UNKNOWN');
@@ -104,9 +104,9 @@ describe('parser test', function () {
     });
   });
 
-  it('should generate bus report', function (done) {
+  it('should generate bus report', done => {
 
-    var body = '<html>' +
+    const body = '<html>' +
       '<div id="manufacturer">AUDI</div>' +
       '<div id="model">model</div>' +
       '<span id="name">name</span>' +
@@ -127,19 +127,19 @@ describe('parser test', function () {
       '</tbody></table>' +
       '</html>';
 
-    var plate = 'AAE 1111';
-    var vin = 'ABC123456789DEF';
-    var firstRegistrationDate = '21-11-2011';
-    var country = 'PL';
+    const plate = 'AAE 1111';
+    const vin = 'ABC123456789DEF';
+    const firstRegistrationDate = '21-11-2011';
+    const country = 'PL';
 
-    var searchCarRequest = new SearchCarRequestBuilder()
+    const searchCarRequest = new SearchCarRequestBuilder()
       .withPlate(plate)
       .withVin(vin)
       .withFirstRegistrationDate(firstRegistrationDate)
       .withCountry(country)
       .build();
 
-    parser.generateReportData(body, searchCarRequest, options, function (err, data) {
+    parser.generateReportData(body, searchCarRequest, options, (err, data) => {
 
       should.not.exist(err);
       should.exist(data);
@@ -175,7 +175,7 @@ describe('parser test', function () {
 
       expect(data).to.have.property('vin.value', 'ABC123456789DEF');
 
-      var events = data.events;
+      const events = data.events;
 
       expect(events).to.have.deep.property('[0].type', 'INSPECTION');
 //      expect(events).to.have.deep.property('[0].createdAt', '2013-06-17T00:00:00.000Z');
@@ -201,25 +201,25 @@ describe('parser test', function () {
     });
   });
 
-  it('should return error on not found', function (done) {
+  it('should return error on not found', done => {
 
-    var body = '<html>' +
+    const body = '<html>' +
       'vehicle not found' +
       '</html>';
 
-    var plate = 'AB1222';
-    var vin = 'ABC123456789DEF';
-    var firstRegistrationDate = '21-11-2011';
-    var country = 'PL';
+    const plate = 'AB1222';
+    const vin = 'ABC123456789DEF';
+    const firstRegistrationDate = '21-11-2011';
+    const country = 'PL';
 
-    var searchCarRequest = new SearchCarRequestBuilder()
+    const searchCarRequest = new SearchCarRequestBuilder()
       .withPlate(plate)
       .withVin(vin)
       .withFirstRegistrationDate(firstRegistrationDate)
       .withCountry(country)
       .build();
 
-    parser.generateReportData(body, searchCarRequest, options, function (err, report) {
+    parser.generateReportData(body, searchCarRequest, options, (err, report) => {
 
       should.not.exist(report);
       should.exist(err);

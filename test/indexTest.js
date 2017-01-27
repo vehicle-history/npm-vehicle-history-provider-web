@@ -1,51 +1,51 @@
-var rewire = require('rewire');
-var SearchCarRequestBuilder = require('vehicle-history-model').model.searchCarRequest.SearchCarRequestBuilder;
-var index = rewire('../index');
-var options = require('config');
-var chai = require('chai');
-var should = chai.should();
+const rewire = require('rewire');
+const SearchCarRequestBuilder = require('vehicle-history-model').model.searchCarRequest.SearchCarRequestBuilder;
+const index = rewire('../index');
+const options = require('config');
+const chai = require('chai');
+const should = chai.should();
 
-var body = '';
+const body = '';
 
-describe('index test', function () {
+describe('index test', () => {
 
   index.__set__({
     client: {
-      getVehicleHistory: function (searchCarRequest, options, callback) {
-        searchCarRequest.plate.should.equal('pwr 17wq');
-        searchCarRequest.vin.should.equal('ABC123456789DEF');
-        searchCarRequest.firstRegistrationDate.should.equal('11.11.2000');
+      getVehicleHistory: function({plate, vin, firstRegistrationDate}, options, callback) {
+        plate.should.equal('pwr 17wq');
+        vin.should.equal('ABC123456789DEF');
+        firstRegistrationDate.should.equal('11.11.2000');
 
         return callback(null, body);
       }
     },
     parser: {
-      generateReportData: function (content, searchCarRequest, options, callback) {
+      generateReportData: function(content, {plate, vin, firstRegistrationDate}, options, callback) {
         content.should.equal(body);
-        searchCarRequest.plate.should.equal('pwr 17wq');
-        searchCarRequest.vin.should.equal('ABC123456789DEF');
-        searchCarRequest.firstRegistrationDate.should.equal('11.11.2000');
+        plate.should.equal('pwr 17wq');
+        vin.should.equal('ABC123456789DEF');
+        firstRegistrationDate.should.equal('11.11.2000');
 
         return callback(null, {});
       }
     }
   });
 
-  it('should call checkVehicleHistory ', function (done) {
+  it('should call checkVehicleHistory ', done => {
 
-    var plate = 'pwr 17wq';
-    var vin = 'ABC123456789DEF';
-    var firstRegistrationDate = '11.11.2000';
-    var country = 'PL';
+    const plate = 'pwr 17wq';
+    const vin = 'ABC123456789DEF';
+    const firstRegistrationDate = '11.11.2000';
+    const country = 'PL';
 
-    var searchCarRequest = new SearchCarRequestBuilder()
+    const searchCarRequest = new SearchCarRequestBuilder()
       .withPlate(plate)
       .withVin(vin)
       .withFirstRegistrationDate(firstRegistrationDate)
       .withCountry(country)
       .build();
 
-    index.checkVehicleHistory(searchCarRequest, options, function (err, result) {
+    index.checkVehicleHistory(searchCarRequest, options, (err, result) => {
       should.not.exist(err);
       should.exist(result);
       done();

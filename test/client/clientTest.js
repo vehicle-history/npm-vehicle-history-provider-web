@@ -1,46 +1,46 @@
-var options = require('config');
-var rewire = require('rewire');
-var client = rewire('../../lib/client/client');
-var SearchCarRequestBuilder = require('vehicle-history-model').model.searchCarRequest.SearchCarRequestBuilder;
-var vehicleHistoryModel = require('vehicle-history-model');
-var ServiceUnavailableError = vehicleHistoryModel.error.ServiceUnavailableError;
-var chai = require('chai');
-var should = chai.should();
-var expect = chai.expect;
+const options = require('config');
+const rewire = require('rewire');
+const client = rewire('../../lib/client/client');
+const SearchCarRequestBuilder = require('vehicle-history-model').model.searchCarRequest.SearchCarRequestBuilder;
+const vehicleHistoryModel = require('vehicle-history-model');
+const ServiceUnavailableError = vehicleHistoryModel.error.ServiceUnavailableError;
+const chai = require('chai');
+const should = chai.should();
+const expect = chai.expect;
 
-describe('client test', function () {
+describe('client test', () => {
 
-  var request = new SearchCarRequestBuilder()
+  const request = new SearchCarRequestBuilder()
     .withPlate('plate')
     .withVin('vin')
     .withFirstRegistrationDate('date')
     .withCountry('PL')
     .build();
 
-  var requestExample = new SearchCarRequestBuilder()
+  const requestExample = new SearchCarRequestBuilder()
     .withPlate('BBC12345')
     .withVin('ABC123456789DEF')
     .withFirstRegistrationDate('11.12.2014')
     .withCountry('PL')
     .build();
 
-  it('should be example vehicle', function (done) {
-    var isExample = client.isExampleVehicle(requestExample, options.get('example'));
+  it('should be example vehicle', done => {
+    const isExample = client.isExampleVehicle(requestExample, options.get('example'));
     expect(isExample).to.be.true;
     done();
   });
 
-  it('should not be example vehicle', function (done) {
-    var isExample = client.isExampleVehicle(request, options.get('example'));
+  it('should not be example vehicle', done => {
+    const isExample = client.isExampleVehicle(request, options.get('example'));
     expect(isExample).to.be.false;
     done();
   });
 
-  it('should build form', function (done) {
-    var body = '<input name="javax.faces.encodedURL" value="javax.faces.encodedURL">' +
+  it('should build form', done => {
+    const body = '<input name="javax.faces.encodedURL" value="javax.faces.encodedURL">' +
       '<input id="javax.faces.ViewState" value="javax.faces.ViewState">';
 
-    var form = client.buildForm(requestExample, body, options.get('form'));
+    const form = client.buildForm(requestExample, body, options.get('form'));
 
     expect(form).to.not.be.empty;
     expect(form['vehiclehistory:buttonCheck']).to.equal('Check');
@@ -54,19 +54,19 @@ describe('client test', function () {
     done();
   });
 
-  it('should failed to build form (throw ServiceUnavailableError)', function (done) {
-    var body = '<input name="notfoundencodedURL" value="notfoundencodedURL">' +
+  it('should failed to build form (throw ServiceUnavailableError)', done => {
+    const body = '<input name="notfoundencodedURL" value="notfoundencodedURL">' +
       '<input id="notfoundViewState" value="notfoundViewState">';
 
-    (function () {
+    ((() => {
       client.buildForm(requestExample, body, options.get('form'))
-    }).should.throw(ServiceUnavailableError);
+    })).should.throw(ServiceUnavailableError);
 
     done();
   });
 
-  it('should prepare form date', function (done) {
-    var options = {
+  it('should prepare form date', done => {
+    const options = {
       get: function (variable) {
         switch (variable) {
           case 'form' :
@@ -92,22 +92,22 @@ describe('client test', function () {
         should.exist(opts);
         opts.url.should.equal('https://vehiclehost');
 
-        var error = null;
-        var response = null;
-        var body = '<form action="https://vehiclehost/strona-glowna?vehicle-history" class ><input name="javax.faces.encodedURL" value="javax.faces.encodedURL"><input id="javax.faces.ViewState" value="javax.faces.ViewState">';
+        const error = null;
+        const response = null;
+        const body = '<form action="https://vehiclehost/strona-glowna?vehicle-history" class ><input name="javax.faces.encodedURL" value="javax.faces.encodedURL"><input id="javax.faces.ViewState" value="javax.faces.ViewState">';
         return callback(error, response, body);
       }
     });
 
-    client.prepareFormData(request, options.get('form'), function (err, date) {
+    client.prepareFormData(request, options.get('form'), (err, date) => {
       should.exist(date);
       should.not.exist(err);
       done();
     });
   });
 
-  it('should return error on unable to parse url', function (done) {
-    var options = {
+  it('should return error on unable to parse url', done => {
+    const options = {
       get: function (variable) {
 
         switch (variable) {
@@ -134,22 +134,22 @@ describe('client test', function () {
         should.exist(opts);
         opts.url.should.equal('https://vehiclehost');
 
-        var error = null;
-        var response = null;
-        var body = '<form action="https://invalidurl/strona-glowna?vehicle-history" class ><input name="javax.faces.encodedURL" value="javax.faces.encodedURL"><input id="javax.faces.ViewState" value="javax.faces.ViewState">';
+        const error = null;
+        const response = null;
+        const body = '<form action="https://invalidurl/strona-glowna?vehicle-history" class ><input name="javax.faces.encodedURL" value="javax.faces.encodedURL"><input id="javax.faces.ViewState" value="javax.faces.ViewState">';
         return callback(error, response, body);
       }
     });
 
-    client.prepareFormData(request, options.get('form'), function (err, date) {
+    client.prepareFormData(request, options.get('form'), (err, date) => {
       should.exist(err);
       should.not.exist(date);
       done();
     });
   });
 
-  it('should throw ENOTFOUND when prepare form date', function (done) {
-    var options = {
+  it('should throw ENOTFOUND when prepare form date', done => {
+    const options = {
       get: function (variable) {
 
         switch (variable) {
@@ -176,23 +176,23 @@ describe('client test', function () {
         should.exist(opts);
         opts.url.should.equal('https://vehiclehost');
 
-        var error = null;
-        var response = null;
-        var body = '<input name="notfoundencodedURL" value="notfoundencodedURL">' +
+        const error = null;
+        const response = null;
+        const body = '<input name="notfoundencodedURL" value="notfoundencodedURL">' +
           '<input id="notfoundViewState" value="notfoundViewState">';
         return callback(error, response, body);
       }
     });
 
-    client.prepareFormData(request, options.get('form'), function (err, date) {
+    client.prepareFormData(request, options.get('form'), (err, date) => {
       should.exist(err);
       should.not.exist(date);
       done();
     });
   });
 
-  it('should call for example vehicle history', function (done) {
-    var options = {
+  it('should call for example vehicle history', done => {
+    const options = {
       get: function (variable) {
 
         switch (variable) {
@@ -225,22 +225,22 @@ describe('client test', function () {
         should.exist(opts);
         opts.url.should.equal('https://vehiclehost/vehicle-history/example.xhtml');
 
-        var error = null;
-        var response = {statusCode: 200};
-        var body = '<form action="https://vehiclehost/strona-glowna?vehicle-history" class ><input name="javax.faces.encodedURL" value="javax.faces.encodedURL"><input id="javax.faces.ViewState" value="javax.faces.ViewState">';
+        const error = null;
+        const response = {statusCode: 200};
+        const body = '<form action="https://vehiclehost/strona-glowna?vehicle-history" class ><input name="javax.faces.encodedURL" value="javax.faces.encodedURL"><input id="javax.faces.ViewState" value="javax.faces.ViewState">';
         return callback(error, response, body);
       }
     });
 
-    client.loadExampleVehicleHistory(requestExample, options.get('example'), function (err, body) {
+    client.loadExampleVehicleHistory(requestExample, options.get('example'), (err, body) => {
       should.exist(body);
       should.not.exist(err);
       done();
     });
   });
 
-  it('should return error', function (done) {
-    var options = {
+  it('should return error', done => {
+    const options = {
       get: function (variable) {
 
         switch (variable) {
@@ -272,22 +272,22 @@ describe('client test', function () {
         should.exist(opts);
         opts.url.should.equal('https://vehiclehost/vehicle-history/example.xhtml');
 
-        var error = new Error('error');
-        var response = {statusCode: 500};
-        var body = '';
+        const error = new Error('error');
+        const response = {statusCode: 500};
+        const body = '';
         return callback(error, response, body);
       }
     });
 
-    client.loadExampleVehicleHistory(requestExample, options.get('example'), function (err, body) {
+    client.loadExampleVehicleHistory(requestExample, options.get('example'), (err, body) => {
       should.exist(err);
       should.not.exist(body);
       done();
     });
   });
 
-  it('should return vehicle example history', function (done) {
-    var options = {
+  it('should return vehicle example history', done => {
+    const options = {
       get: function (variable) {
 
         switch (variable) {
@@ -322,22 +322,22 @@ describe('client test', function () {
         should.exist(opts);
         opts.url.should.equal('https://vehiclehost/vehicle-history/example.xhtml');
 
-        var error = null;
-        var response = {statusCode: 200};
-        var body = '<form action="https://vehiclehost/strona-glowna?vehicle-history" class ><input name="javax.faces.encodedURL" value="javax.faces.encodedURL"><input id="javax.faces.ViewState" value="javax.faces.ViewState">';
+        const error = null;
+        const response = {statusCode: 200};
+        const body = '<form action="https://vehiclehost/strona-glowna?vehicle-history" class ><input name="javax.faces.encodedURL" value="javax.faces.encodedURL"><input id="javax.faces.ViewState" value="javax.faces.ViewState">';
         return callback(error, response, body);
       }
     });
 
-    client.getVehicleHistory(requestExample, options, function (err, date) {
+    client.getVehicleHistory(requestExample, options, (err, date) => {
       should.exist(date);
       should.not.exist(err);
       done();
     });
   });
 
-  it('should return vehicle history (status 200)', function (done) {
-    var options = {
+  it('should return vehicle history (status 200)', done => {
+    const options = {
       get: function (variable) {
 
         switch (variable) {
@@ -369,9 +369,9 @@ describe('client test', function () {
     client.__set__({
       requestWithJar: function (opts, callback) {
         should.exist(opts);
-        var error = null;
-        var response = null;
-        var body = '';
+        let error = null;
+        let response = null;
+        let body = '';
 
         if (opts.url === 'https://vehiclehost' || opts.url === 'https://vehiclehost/strona-glowna?vehicle.xhtml') {
           error = null;
@@ -382,15 +382,15 @@ describe('client test', function () {
       }
     });
 
-    client.getVehicleHistory(request, options, function (err, date) {
+    client.getVehicleHistory(request, options, (err, date) => {
       should.exist(date);
       should.not.exist(err);
       done();
     });
   });
 
-  it('should return error when call vehicle history (status 400)', function (done) {
-    var options = {
+  it('should return error when call vehicle history (status 400)', done => {
+    const options = {
       get: function (variable) {
 
         switch (variable) {
@@ -422,9 +422,9 @@ describe('client test', function () {
     client.__set__({
       requestWithJar: function (opts, callback) {
         should.exist(opts);
-        var error = null;
-        var response = null;
-        var body = '';
+        let error = null;
+        let response = null;
+        let body = '';
 
         if (opts.url === 'https://vehiclehost') {
           error = null;
@@ -441,16 +441,16 @@ describe('client test', function () {
       }
     });
 
-    client.getVehicleHistory(request, options, function (err, date) {
+    client.getVehicleHistory(request, options, (err, date) => {
       should.exist(err);
       should.not.exist(date);
       done();
     });
   });
 
-  it('should get vehicle history after redirect', function (done) {
+  it('should get vehicle history after redirect', done => {
 
-    var options = {
+    const options = {
       get: function (variable) {
 
         switch (variable) {
@@ -482,9 +482,9 @@ describe('client test', function () {
     client.__set__({
       requestWithJar: function (opts, callback) {
         should.exist(opts);
-        var error = null;
-        var response = null;
-        var body = '';
+        let error = null;
+        let response = null;
+        let body = '';
 
         if (opts.url === 'https://vehiclehost') {
           error = null;
@@ -512,20 +512,20 @@ describe('client test', function () {
       }
     });
 
-    client.getVehicleHistory(request, options, function (err, date) {
+    client.getVehicleHistory(request, options, (err, date) => {
       should.exist(date);
       should.not.exist(err);
       done();
     });
   });
 
-  it('should check vehicle history', function (done) {
+  it('should check vehicle history', done => {
     client.__set__({
       requestWithJar: function (opts, callback) {
         should.exist(opts);
-        var error = null;
-        var response = null;
-        var body = '';
+        let error = null;
+        let response = null;
+        let body = '';
 
         if (opts.url === 'https://vehiclehost') {
           error = null;
@@ -554,7 +554,7 @@ describe('client test', function () {
     });
 
 
-    client.getVehicleHistory(request, options, function (err, body) {
+    client.getVehicleHistory(request, options, (err, body) => {
 //      console.log('err', err);
 //      console.log('car', car);
 //      should.exist(car);
