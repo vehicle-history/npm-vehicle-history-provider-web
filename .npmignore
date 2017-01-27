@@ -1,5 +1,8 @@
 .git*
 coverage/
+docs/
+examples/
+support/
 test/
 .DS_Store
 .travis.yml
@@ -7,3 +10,6 @@ test/
 *.ipr
 *.iws
 .idea
+node_modules
+circle.yml
+yarn.lock

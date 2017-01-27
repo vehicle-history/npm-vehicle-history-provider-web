@@ -1,0 +1,8 @@
+.git
+node_modules
+test
+coverage
+*.iml
+*.ipr
+*.iws
+.idea

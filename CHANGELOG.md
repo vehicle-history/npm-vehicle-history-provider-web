@@ -1,3 +1,6 @@
+1.1.0 / 2017-01-27
+  * es6
+
 0.9.5 / 2015-01-31
   * Merge pull request
     https://github.com/vehicle-history/npm-vehicle-history-provider-web/issues/5 from
