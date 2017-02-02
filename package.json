@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "chai": "3.5.0",
-    "config": "1.25.0",
+    "config": "1.25.1",
     "istanbul": "0.4.5",
     "mocha": "3.2.0",
     "nsp": "2.6.2",
