@@ -13,11 +13,11 @@
     "www-fields-parser": "0.1.10"
   },
   "devDependencies": {
-    "chai": "4.0.2",
+    "chai": "4.1.1",
     "config": "1.26.1",
     "istanbul": "0.4.5",
-    "mocha": "3.4.2",
-    "nsp": "2.6.3",
+    "mocha": "3.5.0",
+    "nsp": "2.7.0",
     "rewire": "2.5.2"
   },
   "scripts": {
