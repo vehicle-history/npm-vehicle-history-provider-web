@@ -14,10 +14,10 @@
   },
   "devDependencies": {
     "chai": "4.1.2",
-    "config": "1.26.2",
+    "config": "^1.28.0",
     "istanbul": "0.4.5",
-    "mocha": "4.0.0",
-    "nsp": "2.8.1",
+    "mocha": "^4.0.1",
+    "nsp": "^3.1.0",
     "rewire": "2.5.2"
   },
   "scripts": {
