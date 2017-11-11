@@ -1,6 +1,6 @@
 {
   "name": "vehicle-history-provider-web",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Vehicle history web provider using car plate and vin number.",
   "main": "./index.js",
   "dependencies": {
@@ -22,9 +22,9 @@
   },
   "scripts": {
     "prepublish": "npm prune && node_modules/nsp/bin/nsp check",
-    "test": "mocha --recursive test",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --recursive test",
-    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --recursive test"
+    "test": "mocha -t 10000 --recursive test",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -t 10000 -- --check-leaks --recursive test",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha -t 10000 --report lcovonly -- --recursive test"
   },
   "repository": {
     "type": "git",
