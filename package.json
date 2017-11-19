@@ -18,7 +18,7 @@
     "istanbul": "0.4.5",
     "mocha": "4.0.1",
     "nsp": "3.1.0",
-    "rewire": "3.0.0"
+    "rewire": "3.0.1"
   },
   "scripts": {
     "prepublish": "npm prune && node_modules/nsp/bin/nsp check",
